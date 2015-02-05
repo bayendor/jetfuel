@@ -28,7 +28,7 @@ class ShortUrlsController < ApplicationController
 
     respond_to do |format|
       if @short_url.save
-        format.html { redirect_to @short_url, notice: 'Short url was successfully created.' }
+        format.html { redirect_to @short_url, notice: "Short url was successfully created." }
         format.json { render :show, status: :created, location: @short_url }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ShortUrlsController < ApplicationController
   def update
     respond_to do |format|
       if @short_url.update(short_url_params)
-        format.html { redirect_to @short_url, notice: 'Short url was successfully updated.' }
+        format.html { redirect_to @short_url, notice: "Short url was successfully updated." }
         format.json { render :show, status: :ok, location: @short_url }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ShortUrlsController < ApplicationController
   def destroy
     @short_url.destroy
     respond_to do |format|
-      format.html { redirect_to short_urls_url, notice: 'Short url was successfully destroyed.' }
+      format.html { redirect_to short_urls_url, notice: "Short url was successfully destroyed." }
       format.json { head :no_content }
     end
   end

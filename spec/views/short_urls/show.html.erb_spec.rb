@@ -1,9 +1,9 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "short_urls/show", type: :view do
   before(:each) do
     @short_url = assign(:short_url, ShortUrl.create!(
-      :original_url => "Original Url"
+      original_url: "Original Url"
     ))
   end
 

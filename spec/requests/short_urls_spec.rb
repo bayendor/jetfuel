@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "ShortUrls", type: :request do
   describe "GET /short_urls" do
