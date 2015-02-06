@@ -1,5 +1,6 @@
 class ShortUrlsController < ApplicationController
   before_action :set_short_url, only: [:show]
+  before_action :index, only: [:new, :create]
 
   def show
     @short = set_short_url
@@ -24,7 +25,7 @@ class ShortUrlsController < ApplicationController
 
     respond_to do |format|
       if @short_url.save
-        format.html { redirect_to @short_url, notice: "Short url was created." }
+        format.html { render :show, notice: "Short url was created." }
         format.json { render :show, status: :created, location: @short_url }
       else
         format.html { render :new }
@@ -44,5 +45,9 @@ class ShortUrlsController < ApplicationController
 
   def short_url_params
     params.require(:short_url).permit(:original_url)
+  end
+
+  def index
+    @short_urls = ShortUrl.all
   end
 end
