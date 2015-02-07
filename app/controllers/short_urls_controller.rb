@@ -12,7 +12,6 @@ class ShortUrlsController < ApplicationController
   end
 
   def new
-    @short_urls = ShortUrl.all
     @short_url = ShortUrl.new
 
     respond_to do |format|
@@ -30,8 +29,7 @@ class ShortUrlsController < ApplicationController
       else
         format.html { render :new }
         format.json do
-          render json: @short_url.errors,
-                 status: :unprocessable_entity
+          render json: @short_url.errors, status: :unprocessable_entity
         end
       end
     end
@@ -40,7 +38,7 @@ class ShortUrlsController < ApplicationController
   private
 
   def set_short_url
-    @short_url = ShortUrl.find(params[:id])
+    @short_url = ShortUrl.find(params[:id].to_i(36))
   end
 
   def short_url_params
