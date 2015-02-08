@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Original url:</strong>
+  <strong>Original URL:</strong>
   <%= @short_url.original_url %>
 </p>
 
-<%= link_to 'Edit', edit_short_url_path(@short_url) %> |
-<%= link_to 'Back', short_urls_path %>
+<p>
+  <strong>Shortened URL:</strong>
+  <%= link_to "www.jetfuel.com/#{@short_url.id.to_s(36)}", @short_url, target: "show" %>
+</p>
+
+<%= link_to 'Shorten another URL', short_urls_path %>

@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Listing Short Urls</h2>
+
+<table class="table table-condensed table-striped table-hover text-center">
+  <thead>
+    <tr>
+      <th class="text-center">Original URL</th>
+      <th class="text-center">Short URL</th>
+      <th class="text-center">Visits</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <tr>
+    <% @short_urls.each do |short_url| %>
+      <td><%= short_url.original_url %></td>
+      <td><%= link_to "www.jetfuel.com/#{short_url.id.to_s(36)}", short_url, target: "show" %></td>
+      <td>Visits</td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
