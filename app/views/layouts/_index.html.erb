@@ -7,7 +7,8 @@
     <tr>
       <th class="text-center">Original URL</th>
       <th class="text-center">Short URL</th>
-      <th class="text-center">Visits</th>
+      <th class="text-center"><%= sortable "created_at", "Added" %></th>
+      <th class="text-center"><%= sortable "visits" %></th>
     </tr>
   </thead>
 
@@ -15,8 +16,9 @@
   <tr>
     <% @short_urls.each do |short_url| %>
       <td><%= short_url.original_url %></td>
-      <td><%= link_to "www.jetfuel.com/#{short_url.id.to_s(36)}", short_url, target: "show" %></td>
-      <td>Visits</td>
+      <td><%= link_to "www.jetfuel.com/#{short_url.id.to_s(36)}", short_url, target: "new" %></td>
+      <td><%= short_url.created_at.strftime("%d/%m/%y %l:%M") %>
+      <td><%= short_url.visits %></td>
     </tr>
   <% end %>
   </tbody>
